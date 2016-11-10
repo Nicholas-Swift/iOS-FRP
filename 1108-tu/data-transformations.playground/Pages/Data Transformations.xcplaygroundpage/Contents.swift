@@ -23,5 +23,103 @@
  9. `func reduce<T, U>(array: [T], initial: U, combine: (U, T) -> U) -> U`
  10. recursive versions of `map`, `filter` and `reduce` 😏
  */
+// Challenge 1
+func mapIntsToInts(array: [Int], transform: (Int) -> (Int)) -> [Int] {
+    let newArray = array.map{transform($0)}
+    return newArray
+}
+mapIntsToInts(array: [1, 2, 3, 4, 5]) { (myInt) -> (Int) in
+    return myInt * 2
+}
 
+// Challenge 2
+func mapIntsToStrings(array: [Int], transform: (Int) -> String) -> [String] {
+    let newArray = array.map{transform($0)}
+    return newArray
+}
+mapIntsToStrings(array: [1, 2, 3, 4, 5]) { (myInt) -> String in
+    return String(myInt)
+}
 
+// Challenge 3
+func filterInts(array: [Int], isIncluded: (Int) -> Bool) -> [Int] {
+    let newArray = array.filter{isIncluded($0)}
+    return newArray
+}
+filterInts(array: [1, 2, 3, 4, 5, 6]) { (myInt) -> Bool in
+    return myInt%2 != 0
+}
+
+// Challenge 4
+func filterStrings(array: [String], isIncluded: (String) -> Bool) -> [String] {
+    let newArray = array.filter{isIncluded($0)}
+    return newArray
+}
+filterStrings(array: ["apple", "red", "join", "angry"]) { (myString) -> Bool in
+    return myString.hasPrefix("a")
+}
+
+// Challenge 5
+func reduceIntsToInt(array: [Int], initial: Int, combine: (Int, Int) -> Int) -> Int {
+    let newArray = array.reduce(initial){combine($0, $1)}
+    return newArray
+}
+reduceIntsToInt(array: [1, 2, 3, 4, 5], initial: 0) { (firstInt, secondInt) -> Int in
+    return firstInt + secondInt
+}
+
+// Challenge 6
+func reduceStringsToStrings(array: [String], initial: String, combine: (String, String) -> String) -> String {
+    let newArray = array.reduce(initial){combine($0, $1)}
+    return newArray
+}
+reduceStringsToStrings(array: ["wow", "yeah", "cool"], initial: "output: ") { (firstString, secondString) -> String in
+    return firstString + secondString
+}
+
+// Challenge 7
+func map<T, U>(array: [T], transform: (T) -> U) -> [U] {
+    //return array.map{transform($0)}
+    
+    var newArray: [U] = []
+    for i in array {
+        newArray.append(transform(i))
+    }
+    return newArray
+}
+
+// Challenge 8
+func filter<T>(array: [T], isIncluded: (T) -> Bool) -> [T] {
+    //return array.filter{isIncluded($0)}
+    
+    var newArray: [T] = []
+    for i in array {
+        if isIncluded(i) {
+            newArray.append(i)
+        }
+    }
+    return newArray
+}
+
+// Challenge 9
+func reduce<T, U>(array: [T], initial: U, combine: (U, T) -> U) -> U {
+    //return array.reduce(initial){combine($0, $1)}
+    
+    for i in array {
+        combine(initial, i)
+    }
+    return initial
+}
+
+// Challenge 10 - Recusrion!
+func map<T, U>(array: [T], result: [U] = [], transform: (T) -> U) -> [U] {
+    
+}
+
+func reduce<T, U>(array: [T], result: U, combine: (T, U) -> U) -> U {
+    
+}
+
+func filter<T>(array: [T], result: [T] = [], predicate: (T) -> Bool) -> [T] {
+    
+}
