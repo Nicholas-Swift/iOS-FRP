@@ -6,5 +6,7 @@ target 'GreetingsGenerator-demo' do
   use_frameworks!
 
   # Pods for GreetingsGenerator-demo
+  pod 'RxSwift', '~> 3.0.0'
+  pod 'RxCocoa', '~> 3.0.0'
 
 end
