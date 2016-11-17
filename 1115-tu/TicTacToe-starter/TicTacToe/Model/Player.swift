@@ -9,6 +9,6 @@
 import Foundation
 
 enum Player: String {
-  case circle
-  case cross
+    case circle
+    case cross
 }

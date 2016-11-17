@@ -9,23 +9,23 @@
 import Foundation
 
 enum Field {
-  case free
-  case hasPlayer(Player)
+    case free
+    case hasPlayer(Player)
 }
 
 // we need to implement equatable because we are using enums with associated values
 extension Field: Equatable {
-  
+    
 }
 
 func ==(lhs: Field, rhs: Field) -> Bool {
-  switch (lhs, rhs) {
-  case (.free, .free):
-    return true
-  case (let .hasPlayer(player1), let .hasPlayer(player2)):
-    return player1 == player2
-  default:
-    return false // one of the fields is free, the other has a player
-  }
+    switch (lhs, rhs) {
+    case (.free, .free):
+        return true
+    case (let .hasPlayer(player1), let .hasPlayer(player2)):
+        return player1 == player2
+    default:
+        return false // one of the fields is free, the other has a player
+    }
 }
 
