@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0189221E1DEE05A600050393 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189221D1DEE05A600050393 /* MainViewController.swift */; };
 		551AA2F21DE3DFBB00FE1895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AA2F11DE3DFBB00FE1895 /* AppDelegate.swift */; };
 		551AA2F41DE3DFBB00FE1895 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AA2F31DE3DFBB00FE1895 /* ViewController.swift */; };
 		551AA2F71DE3DFBB00FE1895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 551AA2F51DE3DFBB00FE1895 /* Main.storyboard */; };
@@ -19,9 +20,12 @@
 		551AA3111DE404A300FE1895 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AA3101DE404A300FE1895 /* Issue.swift */; };
 		551AA3181DE4B67700FE1895 /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AA3171DE4B67700FE1895 /* String+Util.swift */; };
 		551AA31A1DE4B69400FE1895 /* Sequence+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AA3191DE4B69400FE1895 /* Sequence+Util.swift */; };
+		A476B49261B78988FAECF365 /* Pods_RxIssuesViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C4ED7D578DF2699CDCE448A /* Pods_RxIssuesViewer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0189221D1DEE05A600050393 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0C4ED7D578DF2699CDCE448A /* Pods_RxIssuesViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxIssuesViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		551AA2EE1DE3DFBB00FE1895 /* RxIssuesViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxIssuesViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		551AA2F11DE3DFBB00FE1895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		551AA2F31DE3DFBB00FE1895 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +40,8 @@
 		551AA3101DE404A300FE1895 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Issue.swift; path = Model/Issue.swift; sourceTree = "<group>"; };
 		551AA3171DE4B67700FE1895 /* String+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Util.swift"; path = "Util/String+Util.swift"; sourceTree = "<group>"; };
 		551AA3191DE4B69400FE1895 /* Sequence+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Sequence+Util.swift"; path = "Util/Sequence+Util.swift"; sourceTree = "<group>"; };
+		83F48D9AACC4576CD0452AE8 /* Pods-RxIssuesViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxIssuesViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxIssuesViewer/Pods-RxIssuesViewer.debug.xcconfig"; sourceTree = "<group>"; };
+		E3FCA76EE503190EA26DDA95 /* Pods-RxIssuesViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxIssuesViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxIssuesViewer/Pods-RxIssuesViewer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +49,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A476B49261B78988FAECF365 /* Pods_RxIssuesViewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C95288238374C2B465376E4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				83F48D9AACC4576CD0452AE8 /* Pods-RxIssuesViewer.debug.xcconfig */,
+				E3FCA76EE503190EA26DDA95 /* Pods-RxIssuesViewer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		451F8C2A87549001D38940D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C4ED7D578DF2699CDCE448A /* Pods_RxIssuesViewer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		551AA2E51DE3DFBB00FE1895 = {
 			isa = PBXGroup;
 			children = (
 				551AA2F01DE3DFBB00FE1895 /* RxIssuesViewer */,
 				551AA2EF1DE3DFBB00FE1895 /* Products */,
+				3C95288238374C2B465376E4 /* Pods */,
+				451F8C2A87549001D38940D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				551AA3091DE3E54900FE1895 /* LoginViewController.swift */,
+				0189221D1DEE05A600050393 /* MainViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -125,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 551AA3001DE3DFBB00FE1895 /* Build configuration list for PBXNativeTarget "RxIssuesViewer" */;
 			buildPhases = (
+				CAB0D59F3F19C37B82933BCA /* [CP] Check Pods Manifest.lock */,
 				551AA2EA1DE3DFBB00FE1895 /* Sources */,
 				551AA2EB1DE3DFBB00FE1895 /* Frameworks */,
 				551AA2EC1DE3DFBB00FE1895 /* Resources */,
+				DA0A839CACF851801EAD4722 /* [CP] Embed Pods Frameworks */,
+				C3816C2440AB04BB9B2A7FB6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,6 +215,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C3816C2440AB04BB9B2A7FB6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxIssuesViewer/Pods-RxIssuesViewer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAB0D59F3F19C37B82933BCA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DA0A839CACF851801EAD4722 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxIssuesViewer/Pods-RxIssuesViewer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		551AA2EA1DE3DFBB00FE1895 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -199,6 +277,7 @@
 				551AA30D1DE4043E00FE1895 /* User.swift in Sources */,
 				551AA3071DE3DFE800FE1895 /* RxGitHubAPI.swift in Sources */,
 				551AA30F1DE4049300FE1895 /* Repository.swift in Sources */,
+				0189221E1DEE05A600050393 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +396,7 @@
 		};
 		551AA3011DE3DFBB00FE1895 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83F48D9AACC4576CD0452AE8 /* Pods-RxIssuesViewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RxIssuesViewer/Info.plist;
@@ -329,6 +409,7 @@
 		};
 		551AA3021DE3DFBB00FE1895 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3FCA76EE503190EA26DDA95 /* Pods-RxIssuesViewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RxIssuesViewer/Info.plist;
