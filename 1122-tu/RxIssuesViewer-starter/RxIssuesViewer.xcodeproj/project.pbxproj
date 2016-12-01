@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0157B2101DF0B45F00A902B7 /* IssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157B20F1DF0B45F00A902B7 /* IssuesViewController.swift */; };
+		0157B2121DF0BB6500A902B7 /* IssueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157B2111DF0BB6500A902B7 /* IssueCell.swift */; };
 		0189221E1DEE05A600050393 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189221D1DEE05A600050393 /* MainViewController.swift */; };
 		018F8FE31DEE171700196BB6 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F8FE21DEE171700196BB6 /* RepositoriesViewController.swift */; };
 		551AA2F21DE3DFBB00FE1895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AA2F11DE3DFBB00FE1895 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		0157B20F1DF0B45F00A902B7 /* IssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesViewController.swift; sourceTree = "<group>"; };
+		0157B2111DF0BB6500A902B7 /* IssueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCell.swift; sourceTree = "<group>"; };
 		0189221D1DEE05A600050393 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		018F8FE21DEE171700196BB6 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		0C4ED7D578DF2699CDCE448A /* Pods_RxIssuesViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxIssuesViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 				551AA30C1DE4043E00FE1895 /* User.swift */,
 				551AA30E1DE4049300FE1895 /* Repository.swift */,
 				551AA3101DE404A300FE1895 /* Issue.swift */,
+				0157B2111DF0BB6500A902B7 /* IssueCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				551AA3181DE4B67700FE1895 /* String+Util.swift in Sources */,
 				551AA30D1DE4043E00FE1895 /* User.swift in Sources */,
 				551AA3071DE3DFE800FE1895 /* RxGitHubAPI.swift in Sources */,
+				0157B2121DF0BB6500A902B7 /* IssueCell.swift in Sources */,
 				551AA30F1DE4049300FE1895 /* Repository.swift in Sources */,
 				0189221E1DEE05A600050393 /* MainViewController.swift in Sources */,
 			);

@@ -159,6 +159,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="gLb-YF-Xuq" kind="show" id="2Vw-q8-1yB"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -178,7 +181,6 @@
                     <connections>
                         <outlet property="searchBar" destination="vFJ-qN-QGa" id="nJt-La-sc2"/>
                         <outlet property="tableView" destination="KMy-Ic-jEE" id="rK9-EF-jd2"/>
-                        <segue destination="gLb-YF-Xuq" kind="show" id="Luc-Oa-0SX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBB-s5-urf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -188,7 +190,7 @@
         <!--Issues-->
         <scene sceneID="iIU-QD-jNF">
             <objects>
-                <viewController id="gLb-YF-Xuq" sceneMemberID="viewController">
+                <viewController id="gLb-YF-Xuq" customClass="IssuesViewController" customModule="RxIssuesViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gvZ-ak-jgu"/>
                         <viewControllerLayoutGuide type="bottom" id="AXy-qp-8La"/>
@@ -201,7 +203,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueCell" rowHeight="93" id="IpE-4i-na4">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueCell" rowHeight="93" id="IpE-4i-na4" customClass="IssueCell" customModule="RxIssuesViewer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IpE-4i-na4" id="uHU-7c-ioQ">
@@ -245,6 +247,12 @@
                                                 <constraint firstItem="dK0-xD-pMW" firstAttribute="top" secondItem="uHU-7c-ioQ" secondAttribute="top" constant="8" id="mfm-qv-MsM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkmarkLabel" destination="suv-XP-W3D" id="Mqx-gG-ylY"/>
+                                            <outlet property="createdByLabel" destination="2c4-oT-6jm" id="j3t-cA-bxk"/>
+                                            <outlet property="issueTitleLabel" destination="B2k-WM-HqJ" id="k23-lY-FvG"/>
+                                            <outlet property="profileImageView" destination="dK0-xD-pMW" id="5Ut-fa-eVJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -258,6 +266,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Issues" id="j6M-S7-GMk"/>
+                    <connections>
+                        <outlet property="tableView" destination="XCg-y6-23C" id="8Jd-qt-xXV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBu-yc-IIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -205,10 +205,11 @@ class RxGitHubAPI {
                 let id = iss["id"] as? Int
                 let title = iss["title"] as? String
                 let postedBy = iss["user"] as? [String: Any]
+                let postedUser = User(json: postedBy!)
                 let open = iss["open"] as? Bool
                 let url = iss["url"] as? String
                 
-                let issue = Issue(id: id, title: title, postedBy: postedBy, open: open, url: url)
+                let issue = Issue(id: id, title: title, postedBy: postedUser, open: open, url: url)
                 issues.append(issue)
             }
             
