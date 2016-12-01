@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     
     let githubApi = RxGitHubAPI()
     var disposeBag = DisposeBag()
+    var user: User?
     
     // UI Elements
     
@@ -27,21 +28,42 @@ class MainViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var seeRepositoriesButton: UIButton!
     
+    // Helper
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! RepositoriesViewController
+        destination.user = self.user
+    }
+    
+    func setUser(user: User?) {
+        self.user = user
+    }
     
     // View Controller
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // INITIAL SETUP
+        userView.isHidden = true
+        
         // Create user observable
         let userObservable: Observable<User?> = searchTextField.rx.text.asObservable().throttle(0.75, scheduler: MainScheduler.instance).flatMapLatest { (text: String?) in
             return self.githubApi.searchFor(user: text!)
         }
         
+        // User NOTE THAT ON NEXT SUBSCRIBE IS A FUNCTION (USER) -> ()
+        userObservable.subscribe(onNext: setUser).addDisposableTo(disposeBag)
+        
         // Hidden
         userObservable.map { (user: User?) in
             return user == nil
         }.bindTo(userView.rx.isHidden).addDisposableTo(disposeBag)
+        
+        // Disabled see repos
+        userObservable.map { (user: User?) in
+            return user != nil
+            }.bindTo(seeRepositoriesButton.rx.isEnabled).addDisposableTo(disposeBag)
         
         // Name
         userObservable.map { (user: User?) in

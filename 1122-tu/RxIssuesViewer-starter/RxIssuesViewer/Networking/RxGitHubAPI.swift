@@ -54,7 +54,7 @@ class RxGitHubAPI {
                             // SEGUE
                             DispatchQueue.main.async {
                                 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                                let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController")
+                                let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MainNavController")
                                 UIApplication.shared.delegate?.window??.rootViewController = viewController
                             }
                             
@@ -111,6 +111,7 @@ class RxGitHubAPI {
     }
     
     // MARK: User Search
+    
     func searchFor(user: String) -> Observable<User?> {
         
         guard let url = self.url(for: .user(user)) else {
@@ -141,13 +142,84 @@ class RxGitHubAPI {
         
     }
     
+    // MARK: Repository Search
+    
+    func searchForRepositoryWith(user: User) -> Observable<[Repository]> {
+        
+        guard let url = self.url(for: .repos(user)) else {
+            return Observable.just([])
+        }
+        
+        let jsonObservable: Observable<Any> = URLSession.shared.rx.json(url: url)
+        
+        let repositoriesObservable: Observable<[Repository]> = jsonObservable.map { (jsonAny: Any) in
+            
+            guard let json = jsonAny as? [Any] else {
+                print(jsonAny)
+                return []
+            }
+            
+            var repositories: [Repository] = []
+            for i in json {
+                
+                let repo = i as! [String: Any]
+                
+                let id = repo["id"] as? Int
+                let language = repo["language"] as? String
+                let name = repo["name"] as? String
+                let fullName = repo["full_name"] as? String
+                
+                let repository = Repository(id: id, language: language, name: name, fullName: fullName)
+                repositories.append(repository)
+            }
+            
+            return repositories
+        }.observeOn(MainScheduler.instance).catchErrorJustReturn([])
+        
+        
+        return repositoriesObservable
+    }
+    
+    // MARK: Issues Search
+    
+    func searchForIssuesWith(user: User, repository: Repository) -> Observable<[Issue]> {
+        
+        guard let url = self.url(for: .issues(user, repository)) else {
+            return Observable.just([])
+        }
+        
+        let jsonObservable: Observable<Any> = URLSession.shared.rx.json(url: url)
+        
+        let issuesObservable: Observable<[Issue]> = jsonObservable.map { (jsonAny: Any) in
+            
+            guard let json = jsonAny as? [Any] else {
+                print(jsonAny)
+                return []
+            }
+            
+            var issues: [Issue] = []
+            for i in json {
+                
+                let iss = i as! [String: Any]
+                
+                let id = iss["id"] as? Int
+                let title = iss["title"] as? String
+                let postedBy = iss["user"] as? [String: Any]
+                let open = iss["open"] as? Bool
+                let url = iss["url"] as? String
+                
+                let issue = Issue(id: id, title: title, postedBy: postedBy, open: open, url: url)
+                issues.append(issue)
+            }
+            
+            return issues
+            }.observeOn(MainScheduler.instance).catchErrorJustReturn([])
+        
+        
+        return issuesObservable
+    }
     
 }
-
-
-
-// MARK: Helpers
-
 
 
 

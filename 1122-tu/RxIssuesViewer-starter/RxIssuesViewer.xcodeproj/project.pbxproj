@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0157B2101DF0B45F00A902B7 /* IssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157B20F1DF0B45F00A902B7 /* IssuesViewController.swift */; };
 		0189221E1DEE05A600050393 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189221D1DEE05A600050393 /* MainViewController.swift */; };
+		018F8FE31DEE171700196BB6 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F8FE21DEE171700196BB6 /* RepositoriesViewController.swift */; };
 		551AA2F21DE3DFBB00FE1895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AA2F11DE3DFBB00FE1895 /* AppDelegate.swift */; };
 		551AA2F41DE3DFBB00FE1895 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AA2F31DE3DFBB00FE1895 /* ViewController.swift */; };
 		551AA2F71DE3DFBB00FE1895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 551AA2F51DE3DFBB00FE1895 /* Main.storyboard */; };
@@ -24,7 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0157B20F1DF0B45F00A902B7 /* IssuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesViewController.swift; sourceTree = "<group>"; };
 		0189221D1DEE05A600050393 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		018F8FE21DEE171700196BB6 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		0C4ED7D578DF2699CDCE448A /* Pods_RxIssuesViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxIssuesViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		551AA2EE1DE3DFBB00FE1895 /* RxIssuesViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxIssuesViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		551AA2F11DE3DFBB00FE1895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 			children = (
 				551AA3091DE3E54900FE1895 /* LoginViewController.swift */,
 				0189221D1DEE05A600050393 /* MainViewController.swift */,
+				018F8FE21DEE171700196BB6 /* RepositoriesViewController.swift */,
+				0157B20F1DF0B45F00A902B7 /* IssuesViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0157B2101DF0B45F00A902B7 /* IssuesViewController.swift in Sources */,
+				018F8FE31DEE171700196BB6 /* RepositoriesViewController.swift in Sources */,
 				551AA31A1DE4B69400FE1895 /* Sequence+Util.swift in Sources */,
 				551AA30A1DE3E54900FE1895 /* LoginViewController.swift in Sources */,
 				551AA3111DE404A300FE1895 /* Issue.swift in Sources */,
