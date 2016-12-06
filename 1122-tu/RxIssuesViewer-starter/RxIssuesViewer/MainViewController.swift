@@ -17,7 +17,8 @@ class MainViewController: UIViewController {
     
     let githubApi = RxGitHubAPI()
     var disposeBag = DisposeBag()
-    var user: User?
+    
+    var varUser: Variable<User?> = Variable(nil)
     
     // UI Elements
     
@@ -32,11 +33,7 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! RepositoriesViewController
-        destination.user = self.user
-    }
-    
-    func setUser(user: User?) {
-        self.user = user
+        destination.user = self.varUser.value
     }
     
     // View Controller
@@ -52,8 +49,8 @@ class MainViewController: UIViewController {
             return self.githubApi.searchFor(user: text!)
         }
         
-        // User NOTE THAT ON NEXT SUBSCRIBE IS A FUNCTION (USER) -> ()
-        userObservable.subscribe(onNext: setUser).addDisposableTo(disposeBag)
+        // Bind to user variable
+        userObservable.bindTo(varUser).addDisposableTo(disposeBag)
         
         // Hidden
         userObservable.map { (user: User?) in
@@ -79,10 +76,10 @@ class MainViewController: UIViewController {
         // Image
         userObservable.map { (user: User?) in
             if user?.type == "User" {
-                return UIImage(named: "user")!
+                return UIImage(named: "User")!
             }
             else {
-                return UIImage(named: "org")!
+                return UIImage(named: "User Group")!
             }
         }.bindTo(userImageView.rx.image).addDisposableTo(disposeBag)
         

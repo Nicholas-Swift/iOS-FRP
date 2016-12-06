@@ -17,7 +17,9 @@ class RepositoriesViewController: UIViewController {
     let githubApi = RxGitHubAPI()
     var user: User?
     var disposeBag = DisposeBag()
-    var repos: [Repository] = []
+    
+    var repos: Variable<[Repository]> = Variable([])
+    var filteredRepos: Variable<[Repository]> = Variable([])
     
     // UI Elements
     
@@ -32,20 +34,36 @@ class RepositoriesViewController: UIViewController {
         destination.user = self.user
         
         let selectedRow = tableView.indexPathForSelectedRow!.row
-        destination.repo = repos[selectedRow]
+        destination.repo = repos.value[selectedRow]
     }
     
     func setRepos(repos: [Repository]) {
-        self.repos = repos
+        self.repos.value = repos
+        self.filteredRepos.value = filteredRepos.value.isEmpty ? repos : []
+    }
+    
+    func filterRepos(text: String?) {
+        guard let text = text else {
+            
+            filteredRepos.value = repos.value
+            
+            return
+        }
+        
+        var newValue: [Repository] = []
+        for repo in repos.value {
+            if repo.name.hasPrefix(text) {
+                newValue.append(repo)
+            }
+        }
+        
+        self.filteredRepos.value = newValue
     }
     
     // View Controller
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set up nav title
-        //self.navigationItem.title = user?.name
         
         // Set up delegate and datascource
         tableView.delegate = nil
@@ -58,21 +76,18 @@ class RepositoriesViewController: UIViewController {
         
         // Create repo observable
         let repoObservable: Observable<[Repository]> = self.githubApi.searchForRepositoryWith(user: user)
-        
         repoObservable.subscribe(onNext: setRepos).addDisposableTo(disposeBag)
         
-        repoObservable.bindTo(tableView.rx.items(cellIdentifier: "RepositoriesBasicCell", cellType: UITableViewCell.self)) { (index: Int, repo: Repository, cell: UITableViewCell) in
+        // Create search bar observable
+        let searchbarObservable: Observable<String?> = self.searchBar.rx.text.asObservable()
+        searchbarObservable.subscribe(onNext: filterRepos).addDisposableTo(disposeBag)
+        filterRepos(text: nil)
+        
+        // Bind to tableView
+        filteredRepos.asObservable().bindTo(tableView.rx.items(cellIdentifier: "RepositoriesBasicCell", cellType: UITableViewCell.self)) { (index: Int, repo: Repository, cell: UITableViewCell) in
             cell.textLabel?.text = repo.fullName
         }.addDisposableTo(disposeBag)
         
-//        // Create repo observable
-//        if let user = self.user {
-//            let repoObservable: Observable<[Repository]> = self.githubApi.searchForRepositoryWith(user: user)
-//            
-//            repoObservable.bindTo(tableView.rx.items(cellIdentifier: "RepositoriesBasicCell", cellType: UITableViewCell.self)) { (index: Int, repo: Repository, cell: UITableViewCell) in
-//                cell.textLabel?.text = repo.fullName
-//            }.addDisposableTo(disposeBag)
-//        }
     }
     
     override func didReceiveMemoryWarning() {
