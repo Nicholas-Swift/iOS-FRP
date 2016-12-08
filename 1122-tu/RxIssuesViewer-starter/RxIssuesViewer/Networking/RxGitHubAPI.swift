@@ -132,8 +132,9 @@ class RxGitHubAPI {
             let email = json["email"] as? String
             let publicRepos = json["public_repos"] as? Int
             let type = json["type"] as? String
+            let avatarUrl = json["avatar_url"] as? String
             
-            let user = User(id: id, login: login, name: name, email: email, publicRepos: publicRepos, type: type)
+            let user = User(id: id, login: login, name: name, email: email, publicRepos: publicRepos, type: type, avatarUrl: avatarUrl)
             
             return user
         }.observeOn(MainScheduler.instance).catchErrorJustReturn(nil)
@@ -207,7 +208,7 @@ class RxGitHubAPI {
                 let postedBy = iss["user"] as? [String: Any]
                 let postedUser = User(json: postedBy!)
                 let open = iss["open"] as? Bool
-                let url = iss["url"] as? String
+                let url = iss["html_url"] as? String
                 
                 let issue = Issue(id: id, title: title, postedBy: postedUser, open: open, url: url)
                 issues.append(issue)

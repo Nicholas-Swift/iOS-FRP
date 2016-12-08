@@ -6,7 +6,7 @@
 //  Copyright © 2016 Nikolas Burk. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct User {
     let identifier: Int
@@ -17,13 +17,16 @@ struct User {
     let publicRepos: Int
     let type: String
     
-    init(id: Int?, login: String?, name: String?, email: String?, publicRepos: Int?, type: String?) {
+    let avatarUrl: String
+    
+    init(id: Int?, login: String?, name: String?, email: String?, publicRepos: Int?, type: String?, avatarUrl: String?) {
         self.identifier = id ?? 0
         self.login = login ?? ""
         self.name = name ?? ""
         self.email = email ?? ""
         self.publicRepos = publicRepos ?? 0
         self.type = type ?? ""
+        self.avatarUrl = avatarUrl ?? ""
     }
     
     init(json: [String: Any]) {
@@ -33,6 +36,7 @@ struct User {
         let email = json["email"] as? String
         let publicRepos = json["public_repos"] as? Int
         let type = json["type"] as? String
+        let avatarUrl = json["avatar_url"] as? String
         
         self.identifier = id ?? 0
         self.login = login ?? ""
@@ -40,6 +44,7 @@ struct User {
         self.email = email ?? ""
         self.publicRepos = publicRepos ?? 0
         self.type = type ?? ""
+        self.avatarUrl = avatarUrl ?? ""
     }
     
 }

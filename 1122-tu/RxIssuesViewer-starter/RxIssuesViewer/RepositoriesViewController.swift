@@ -90,6 +90,12 @@ class RepositoriesViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
