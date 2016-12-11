@@ -33,7 +33,8 @@ class IssueCell: UITableViewCell {
     @IBOutlet weak var checkmarkLabel: UILabel!
     
     override func prepareForReuse() {
-        
+        disposeBag = DisposeBag()
+        profileImageView.image = nil
     }
 }
 
